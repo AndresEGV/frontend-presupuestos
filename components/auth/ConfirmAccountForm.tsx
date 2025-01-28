@@ -21,7 +21,7 @@ const ConfirmAccountForm = () => {
     if (isComplete) {
       dispatch();
     }
-  }, [isComplete]);
+  }, [isComplete, dispatch]);
 
   useEffect(() => {
     if (state.errors) {

@@ -41,7 +41,7 @@ export default function EditExpenseForm({
         setExpense(data);
       })
       .catch((error) => console.error(error));
-  }, []);
+  }, [budgetId, expenseId]);
 
   useEffect(() => {
     if (state.success) {
@@ -50,7 +50,7 @@ export default function EditExpenseForm({
         closeModal();
       }, 200);
     }
-  }, [state]);
+  }, [state, closeModal]);
   return (
     <>
       <DialogTitle as="h3" className="font-black text-4xl text-purple-950 my-5">

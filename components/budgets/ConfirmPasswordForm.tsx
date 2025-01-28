@@ -21,7 +21,7 @@ export default function ConfirmPasswordForm() {
       toast.success(state.success);
       router.push("/admin");
     }
-  }, [state]);
+  }, [state, router]);
   const closeModal = () => {
     const hideModal = new URLSearchParams(searchParams.toString());
     hideModal.delete("deleteBudgetId");
