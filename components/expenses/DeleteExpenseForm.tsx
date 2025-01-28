@@ -28,13 +28,13 @@ export default function DeleteExpenseForm({ closeModal }: DeleteExpenseForm) {
       toast.success(state.success);
       closeModal();
     }
-  }, [state, closeModal]);
+  }, [state]);
 
   useEffect(() => {
-    if (!Number.isInteger(+budgetId) || Number.isInteger(+expenseId)) {
+    if (!Number.isInteger(+budgetId) || !Number.isInteger(+expenseId)) {
       closeModal();
     }
-  }, [budgetId, closeModal, expenseId]);
+  }, []);
   return (
     <>
       <DialogTitle as="h3" className="font-black text-4xl text-purple-950 my-5">
