@@ -45,7 +45,7 @@ export default function DeleteExpenseForm({ closeModal }: DeleteExpenseForm) {
       ))}
       <p className="text-xl font-bold">
         Confirma para eliminar, {""}
-        <span className="text-amber-500">el gasto</span>
+        <span className="text-amber-500">el Gasto</span>
       </p>
       <p className="text-gray-600 text-sm">
         (Un gasto eliminado no se puede recuperar)
