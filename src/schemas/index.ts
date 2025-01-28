@@ -98,6 +98,29 @@ export const UserSchema = z.object({
   email: z.string().email(),
 });
 
+export const UpdatePasswordSchema = z
+  .object({
+    current_password: z
+      .string()
+      .min(1, { message: "El password no puede ir vacio" }),
+    password: z.string().min(8, {
+      message: "El Nuevo password debe ser al menos de 8 caracteres",
+    }),
+    password_confirmation: z.string(),
+  })
+  .refine((data) => data.password === data.password_confirmation, {
+    message: "Los Passwords no son iguales",
+    path: ["password_confirmation"],
+  });
+
+export const ProfileFormSchema = z.object({
+  name: z.string().min(1, { message: "Tu Nombre no puede ir vacio" }),
+  email: z
+    .string()
+    .min(1, { message: "El Email es Obligatorio" })
+    .email({ message: "Email no válido" }),
+});
+
 export type User = z.infer<typeof UserSchema>;
 export type Budget = z.infer<typeof BudgetAPIResponseSchema>;
 export type DraftExpense = z.infer<typeof DraftExpenseSchema>;
